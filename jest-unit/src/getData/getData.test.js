@@ -127,10 +127,10 @@ describe('getData', () => {
     }
   })
   test('Корректное значения', async () => {
-    axios.get.mockReturnValue(response)
-    const data = await getData()
-    expect(axios.get).toBeCalledTimes(1);
+    axios.get.mockReturnValue(response)  // Мокаем возвращаемое значение
+    const data = await getData() // Делаем моканный запрос на "бэк"
+    expect(axios.get).toBeCalledTimes(1); // Проверяем на то, что функция get была вызвана 1 раз
     expect(data).toEqual(['1', '2', '3', '4', '5'])
-    expect(data).toMatchSnapshot()
+    expect(data).toMatchSnapshot() // Делает snapshot
   })
 })
